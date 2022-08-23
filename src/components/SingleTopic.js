@@ -1,24 +1,27 @@
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchArticles } from "../api";
+import { fetchArticlesByTopic } from "../api";
 import dateFormat from "dateformat";
 
-const AllArticles = () => {
-  const [articles, setArticles] = useState([]);
+const SingleTopic = () => {
+  const { topic } = useParams();
+  const [singleTopic, setSingleTopic] = useState([]);
 
   useEffect(() => {
-    fetchArticles()
+    fetchArticlesByTopic(topic)
       .then((article) => {
-        setArticles(article);
+        setSingleTopic(article);
         console.log(article);
       })
       .catch((err) => {
         console.dir(err);
       });
-  }, []);
+  }, [topic]);
 
+  console.log(topic);
   return (
     <ul>
-      {articles.map((article) => {
+      {singleTopic.map((article) => {
         return (
           <div className="article-card">
             <div className="article-content"></div>
@@ -35,4 +38,5 @@ const AllArticles = () => {
     </ul>
   );
 };
-export default AllArticles;
+
+export default SingleTopic;
