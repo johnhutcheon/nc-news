@@ -4,9 +4,8 @@ const Header = () => {
   return (
     <>
       <div className="header">
-        <h1>J H N</h1>
+        <h1>John Hutcheon News 👁</h1>
       </div>
-      <div className="sub-header">John Hutcheon News </div>
       <br></br>
       <div className="est">est 2022</div>
 

@@ -48,6 +48,9 @@
 
 .App {
   text-align: center;
+  background-color: rgb(255, 255, 255);
+  border: 0;
+  margin: 0;
 }
 
 .App-logo {
@@ -82,7 +85,7 @@
   width: 60vw;
   margin: auto;
   margin-bottom: 1cm;
-  background-color: rgb(210, 208, 198);
+  background-color: rgb(175, 232, 171);
 }
 
 .article-content {
@@ -92,20 +95,14 @@
 .header {
   width: 50%;
   margin: auto;
-  font-family: "Telemarketing Superstar";
-  font-size: 72px;
-  color: rgb(197, 45, 19);
-}
-
-.sub-header {
   font-family: "Alejo Solid";
-  margin-top: -3cm;
   font-size: 48px;
+  color: rgb(112, 152, 126);
 }
 
 .est {
   font-family: "Alejo Line";
-  margin-top: -0.5cm;
+  margin-top: -2cm;
   font-size: 28px;
 }
 
@@ -116,4 +113,9 @@ nav {
 
 ul li {
   list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

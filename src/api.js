@@ -21,3 +21,15 @@ export const fetchArticlesByTopic = (topic) => {
       return result;
     });
 };
+
+export const fetchSingleArticle = (article_id) => {
+  return fetch(
+    `https://john-hutcheon-backend-project.herokuapp.com/api/articles/${article_id}`
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .then((result) => {
+      return result;
+    });
+};
