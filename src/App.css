@@ -1,3 +1,51 @@
+@import url(//db.onlinewebfonts.com/c/4501475bf849e2b936cd620a5e0a273c?family=Telemarketing+Superstar);
+@font-face {
+  font-family: "Telemarketing Superstar";
+  src: url("//db.onlinewebfonts.com/t/4501475bf849e2b936cd620a5e0a273c.eot");
+  src: url("//db.onlinewebfonts.com/t/4501475bf849e2b936cd620a5e0a273c.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/4501475bf849e2b936cd620a5e0a273c.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/4501475bf849e2b936cd620a5e0a273c.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/4501475bf849e2b936cd620a5e0a273c.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/4501475bf849e2b936cd620a5e0a273c.svg#Telemarketing Superstar")
+      format("svg");
+}
+
+@import url(//db.onlinewebfonts.com/c/64851cdd33cb1dcd2ccc875b469baae6?family=Alejo+Line);
+@font-face {
+  font-family: "Alejo Line";
+  src: url("//db.onlinewebfonts.com/t/64851cdd33cb1dcd2ccc875b469baae6.eot");
+  src: url("//db.onlinewebfonts.com/t/64851cdd33cb1dcd2ccc875b469baae6.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/64851cdd33cb1dcd2ccc875b469baae6.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/64851cdd33cb1dcd2ccc875b469baae6.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/64851cdd33cb1dcd2ccc875b469baae6.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/64851cdd33cb1dcd2ccc875b469baae6.svg#Alejo Line")
+      format("svg");
+}
+
+@import url(//db.onlinewebfonts.com/c/1e827bdc08837273e16ebba4ce90dfe0?family=Alejo+Solid);
+@font-face {
+  font-family: "Alejo Solid";
+  src: url("//db.onlinewebfonts.com/t/1e827bdc08837273e16ebba4ce90dfe0.eot");
+  src: url("//db.onlinewebfonts.com/t/1e827bdc08837273e16ebba4ce90dfe0.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/1e827bdc08837273e16ebba4ce90dfe0.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/1e827bdc08837273e16ebba4ce90dfe0.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/1e827bdc08837273e16ebba4ce90dfe0.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/1e827bdc08837273e16ebba4ce90dfe0.svg#Alejo Solid")
+      format("svg");
+}
+
 .App {
   text-align: center;
 }
@@ -41,20 +89,6 @@
   margin: auto;
 }
 
-@font-face {
-  font-family: "Telemarketing Superstar";
-  src: url("/Users/johnhutcheon/Library/Fonts/Telemarketing Superstar Italic.ttf")
-    format("truetype");
-
-  font-family: "Alejo-ItalicLine";
-  src: url("/Users/johnhutcheon/Library/Fonts/AlejoItalicLine-1GnWB.otf")
-    format("OpenType PostScript");
-
-  font-family: "Alejo-ItalicSolid";
-  src: url("/Users/johnhutcheon/Library/Fonts/AlejoItalicSolid-BWG88.otf")
-    format("OpenType PostScript");
-}
-
 .header {
   width: 50%;
   margin: auto;
@@ -64,13 +98,13 @@
 }
 
 .sub-header {
-  font-family: "Alejo-ItalicSolid";
+  font-family: "Alejo Solid";
   margin-top: -3cm;
   font-size: 48px;
 }
 
 .est {
-  font-family: "Alejo-ItalicLine";
+  font-family: "Alejo Line";
   margin-top: -0.5cm;
   font-size: 28px;
 }
