@@ -7,11 +7,6 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // const handleChange = (event) => {
-  //   console.log(event.target);
-  //   setArticles(event.target.value);
-  // };
-
   useEffect(() => {
     fetchArticles()
       .then((article) => {
@@ -35,7 +30,7 @@ const Articles = () => {
               <div className="article-card">
                 <div className="article-content"></div>
                 <li>
-                  <h2>{article.title}</h2>
+                  <h1>{article.title}</h1>
                   <h3>Author: {article.author}</h3>
                   <h4>{dateFormat(article.created_at, "mmmm dS, yyyy")}</h4>
                   <h4>Votes: {article.votes}</h4>

@@ -12,7 +12,6 @@ const SingleTopic = () => {
   useEffect(() => {
     fetchArticlesByTopic(topic)
       .then((article) => {
-        setIsLoading(true);
         setSingleTopic(article);
         setIsLoading(false);
       })
@@ -31,7 +30,7 @@ const SingleTopic = () => {
             <div className="article-card">
               <div className="article-content"></div>
               <li>
-                <h2>{article.title}</h2>
+                <h1>{article.title}</h1>
                 <h3>Author: {article.author}</h3>
                 <h4>{dateFormat(article.created_at, "mmmm dS, yyyy")}</h4>
                 <h4>Votes: {article.votes}</h4>
