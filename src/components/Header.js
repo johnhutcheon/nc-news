@@ -20,7 +20,6 @@ const Header = () => {
           <Link to="/topics/coding"> Coding </Link>
           {" | "}
           <Link to="/topics/cooking"> Cooking </Link>
-          {" | "}
         </nav>
       </section>
     </>

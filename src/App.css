@@ -79,13 +79,14 @@
 
 .article-card {
   font-size: small;
-  font-style: italic;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  border: black 2px solid;
+  font-style: normal;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border: black 1px solid;
   width: 60vw;
   margin: auto;
   margin-bottom: 1cm;
-  background-color: rgb(175, 232, 171);
+  background-color: rgb(208, 238, 206);
 }
 
 .article-content {

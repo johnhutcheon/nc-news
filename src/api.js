@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const fetchArticles = () => {
   return fetch(
     "https://john-hutcheon-backend-project.herokuapp.com/api/articles"
@@ -31,5 +33,27 @@ export const fetchSingleArticle = (article_id) => {
     })
     .then((result) => {
       return result;
+    });
+};
+
+export const addArticleVotes = (article_id) => {
+  return axios
+    .patch(
+      `https://john-hutcheon-backend-project.herokuapp.com/api/articles/${article_id}`,
+      { inc_votes: 1 }
+    )
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+export const minusArticleVotes = (article_id) => {
+  return axios
+    .patch(
+      `https://john-hutcheon-backend-project.herokuapp.com/api/articles/${article_id}`,
+      { inc_votes: -1 }
+    )
+    .then(({ data }) => {
+      return data;
     });
 };
