@@ -4,7 +4,9 @@ const Header = () => {
   return (
     <>
       <div className="header">
-        <h1>John Hutcheon News 👁</h1>
+        <h1>
+          John<br></br> Hutcheon<br></br> News 👁
+        </h1>
       </div>
       <br></br>
       <div className="est">est 2022</div>
@@ -13,8 +15,10 @@ const Header = () => {
         <nav>
           <Link to="/">Home</Link>
           {" | "}
+
           <Link to="/articles"> Articles </Link>
           {" | "}
+
           <Link to="/topics/football"> Football </Link>
           {" | "}
           <Link to="/topics/coding"> Coding </Link>

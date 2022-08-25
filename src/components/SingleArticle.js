@@ -1,14 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchSingleArticle, minusArticleVotes, addArticleVotes } from "../api";
+import {
+  fetchSingleArticle,
+  minusArticleVotes,
+  addArticleVotes,
+  fetchComments,
+} from "../api";
 import dateFormat from "dateformat";
+import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
   const [voteCount, setVoteCount] = useState(0);
   const [singleArticle, setSingleArticle] = useState([]);
+  const [showComment, setShowComment] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const increaseVote = () => {
     setVoteCount((currVotes) => currVotes + 1);
     addArticleVotes(article_id).catch((err) => {
@@ -24,10 +30,14 @@ const SingleArticle = () => {
   };
 
   useEffect(() => {
-    fetchSingleArticle(article_id)
-      .then((article) => {
-        setSingleArticle(article);
-        setIsLoading(false);
+    fetchSingleArticle(article_id).then((article) => {
+      setSingleArticle(article);
+      setIsLoading(false);
+    });
+    fetchComments(article_id)
+      .then((response) => {
+        setShowComment(response.comments);
+        console.log(response.comments);
       })
       .catch((err) => {
         console.dir(err);
@@ -36,21 +46,49 @@ const SingleArticle = () => {
 
   if (isLoading) return <p>Loading...</p>;
 
-  console.log(singleArticle);
   return (
-    <div className="article-card">
-      <div className="article-content"></div>
-      <h2>{singleArticle.articles.title}</h2>
-      <h3>Author: {singleArticle.articles.author}</h3>
-      <h4>{singleArticle.articles.body}</h4>
-      <h4>{dateFormat(singleArticle.articles.created_at, "mmmm dS, yyyy")}</h4>
-      <h4>
-        <button onClick={increaseVote}>+</button> Votes:
-        {singleArticle.articles.votes + voteCount}{" "}
-        <button onClick={decreaseVote}>-</button>
-      </h4>
-      <h4>Comment Count: {singleArticle.articles.comment_count}</h4>
-    </div>
+    <>
+      <div className="article-card">
+        <div className="article-content"></div>
+        <h2>{singleArticle.articles.title}</h2>
+        <h3>Author: {singleArticle.articles.author}</h3>
+        <h4>{singleArticle.articles.body}</h4>
+        <h4>
+          {dateFormat(singleArticle.articles.created_at, "mmmm dS, yyyy")}
+        </h4>
+        <h4>
+          <button onClick={increaseVote}>
+            <FaRegThumbsUp />
+          </button>{" "}
+          Votes:
+          {singleArticle.articles.votes + voteCount}{" "}
+          <button onClick={decreaseVote}>
+            <FaRegThumbsDown />
+          </button>
+        </h4>
+        <h4>Comment Count: {singleArticle.articles.comment_count}</h4>
+        <button className="comment-button">View Comments </button>
+      </div>
+
+      <div className="comment-card">
+        <h2>Comments</h2>
+
+        {showComment.map((comment) => {
+          console.log(comment);
+          return (
+            <>
+              <div>
+                <h4>Author: {comment.author}</h4>
+                <h4>{comment.body}</h4>
+                <h4>{dateFormat(comment.created_at, "mmmm dS, yyyy")}</h4>
+                <h4>Votes: {comment.votes}</h4>
+                <br></br>
+              </div>
+            </>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

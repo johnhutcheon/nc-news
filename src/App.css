@@ -80,13 +80,33 @@
 .article-card {
   font-size: small;
   font-style: normal;
+  /* justify-content: center; */
+  /* text-justify: auto; */
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   border: black 1px solid;
   width: 60vw;
   margin: auto;
-  margin-bottom: 1cm;
-  background-color: rgb(208, 238, 206);
+  margin-bottom: 2cm;
+  background-color: rgb(195, 206, 189);
+}
+
+.comment-card {
+  font-size: small;
+  font-style: normal;
+  /* justify-content: center; */
+  /* text-justify: auto; */
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border: black 1px solid;
+  width: 60vw;
+  margin: auto;
+  margin-bottom: 2cm;
+  background-color: rgb(195, 206, 189);
+}
+
+.comment-button {
+  margin-bottom: 0.5cm;
 }
 
 .article-content {

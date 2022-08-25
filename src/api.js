@@ -57,3 +57,13 @@ export const minusArticleVotes = (article_id) => {
       return data;
     });
 };
+
+export const fetchComments = (article_id) => {
+  return axios
+    .get(
+      `https://john-hutcheon-backend-project.herokuapp.com/api/articles/${article_id}/comments`
+    )
+    .then(({ data }) => {
+      return data;
+    });
+};
