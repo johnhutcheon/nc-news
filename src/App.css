@@ -46,6 +46,10 @@
       format("svg");
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
+
 .App {
   text-align: center;
   background-color: rgb(255, 255, 255);
@@ -80,10 +84,7 @@
 .article-card {
   font-size: small;
   font-style: normal;
-  /* justify-content: center; */
-  /* text-justify: auto; */
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Varela", sans-serif;
   border: black 1px solid;
   width: 60vw;
   margin: auto;
@@ -116,9 +117,10 @@
 .header {
   width: 50%;
   margin: auto;
-  font-family: "Alejo Solid";
+  /* font-family: "Alejo Solid"; */
+  font-family: "Shrikhand", cursive;
   font-size: 48px;
-  color: rgb(112, 152, 126);
+  color: rgb(224, 189, 143);
 }
 
 .est {

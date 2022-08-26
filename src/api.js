@@ -67,3 +67,19 @@ export const fetchComments = (article_id) => {
       return data;
     });
 };
+
+export const postComment = (article_id, body) => {
+  console.log(body, "in the API");
+
+  return axios
+    .post(
+      `https://john-hutcheon-backend-project.herokuapp.com/api/articles/${article_id}/comments`,
+      {
+        username: "jessjelly",
+        body: body,
+      }
+    )
+    .then(({ data }) => {
+      return data;
+    });
+};
