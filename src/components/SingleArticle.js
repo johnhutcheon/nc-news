@@ -5,9 +5,11 @@ import {
   minusArticleVotes,
   addArticleVotes,
   fetchComments,
+  postComment,
 } from "../api";
 import dateFormat from "dateformat";
 import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
+import NewComment from "./NewComment";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -34,11 +36,11 @@ const SingleArticle = () => {
       setSingleArticle(article);
       setIsLoading(false);
     });
-    fetchComments(article_id)
-      .then((response) => {
-        setShowComment(response.comments);
-        console.log(response.comments);
-      })
+    fetchComments(article_id).then((response) => {
+      setShowComment(response.comments);
+    });
+    postComment(article_id)
+      .then((response) => {})
       .catch((err) => {
         console.dir(err);
       });
@@ -70,11 +72,12 @@ const SingleArticle = () => {
         <button className="comment-button">View Comments </button>
       </div>
 
+      <NewComment setShowComment={setShowComment} showComment={showComment} />
+
       <div className="comment-card">
         <h2>Comments</h2>
 
         {showComment.map((comment) => {
-          console.log(comment);
           return (
             <>
               <div>
