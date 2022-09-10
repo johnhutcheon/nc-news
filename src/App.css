@@ -92,7 +92,19 @@
   background-color: rgb(195, 206, 189);
 }
 
-.comment-card {
+/* .comment-card { */
+/* font-size: small;
+  font-style: normal; */
+/* font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border: black 1px solid;
+  width: 60vw;
+  margin: auto;
+  margin-bottom: 2cm;
+  background-color: rgb(195, 206, 189);
+} */
+
+.individual-comment {
   font-size: small;
   font-style: normal;
   /* justify-content: center; */
@@ -132,6 +144,17 @@
 nav {
   margin-top: 1cm;
   margin-bottom: 1cm;
+}
+
+.new-comments {
+  margin-top: 2cm;
+  margin-bottom: 2cm;
+  font-family: "Shrikhand", cursive;
+  color: rgb(199, 167, 120);
+}
+
+.userID {
+  font-size: 12px;
 }
 
 ul li {

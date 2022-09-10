@@ -1,28 +1,35 @@
 import { useEffect, useState } from "react";
 import { fetchArticles } from "../api";
 import dateFormat from "dateformat";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import SortBy from "./SortBy";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [sortBy, setSortBy] = useState("created_at");
+  const [order, setOrderBy] = useState("ASC");
+  const { slug } = useParams;
 
   useEffect(() => {
-    fetchArticles()
+    setIsLoading(true);
+    fetchArticles(slug, sortBy, order)
       .then((article) => {
-        setIsLoading(true);
+        console.log(article);
         setArticles(article);
         setIsLoading(false);
       })
       .catch((err) => {
         console.dir(err);
       });
-  }, []);
+  }, [slug, sortBy, order]);
 
   if (isLoading) return <p>Loading...</p>;
 
   return (
     <ul>
+      <SortBy setOrderBy={setOrderBy} setSortBy={setSortBy} />
+
       {articles.map((article) => {
         return (
           <>
