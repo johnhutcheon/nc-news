@@ -1,14 +1,13 @@
 import axios from "axios";
 
-export const fetchArticles = () => {
-  return fetch(
-    "https://john-hutcheon-backend-project.herokuapp.com/api/articles"
-  )
-    .then((res) => {
-      return res.json();
+export const fetchArticles = (slug, sortBy, orderBy) => {
+  // passing these in for sort by method
+  return axios
+    .get("https://john-hutcheon-backend-project.herokuapp.com/api/articles", {
+      params: { topic: slug, sortBy: sortBy, orderBy: orderBy },
     })
-    .then((result) => {
-      return result;
+    .then(({ data }) => {
+      return data;
     });
 };
 
@@ -81,5 +80,23 @@ export const postComment = (article_id, body) => {
     )
     .then(({ data }) => {
       return data;
+    });
+};
+
+export const deleteComment = (comment_id) => {
+  return axios
+    .delete(
+      `https://john-hutcheon-backend-project.herokuapp.com/api/comments/${comment_id}`
+    )
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+export const fetchUserList = () => {
+  return axios
+    .get("https://john-hutcheon-backend-project.herokuapp.com/api/users")
+    .then((res) => {
+      return res.data;
     });
 };

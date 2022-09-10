@@ -10,31 +10,34 @@ const NewComment = ({ setShowComment, showComment }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     const optimisticComment = {
+      //   author: "jessjelly",
       body: addComment,
       votes: 0,
     };
-    <h1>New comment added!</h1>;
 
     setShowComment([optimisticComment, ...showComment]);
-    postComment(article_id, addComment);
+    alert("Comment posted");
+    postComment(article_id, addComment); //// addComment is the body (passed through the API) as we're updating this in the form below
     console.log("I have been clicked");
     setAddComment("");
   };
 
   return (
     <>
-      <h2>Post a new comment</h2>
+      <section className="new-comments">
+        <h2>Post a new comment</h2>
 
-      <form onSubmit={onSubmit}>
-        <textarea
-          rows="6"
-          cols="50"
-          value={addComment}
-          onChange={(event) => setAddComment(event.target.value)}
-        ></textarea>
-        <br></br>
-        <input type="submit" value="Post comment" />
-      </form>
+        <form onSubmit={onSubmit}>
+          <textarea
+            rows="6"
+            cols="100"
+            value={addComment}
+            onChange={(event) => setAddComment(event.target.value)} /// updating addComment to be whatever is posted in the input box
+          ></textarea>
+          <br></br>
+          <input type="submit" value="Post comment" />
+        </form>
+      </section>
     </>
   );
 };

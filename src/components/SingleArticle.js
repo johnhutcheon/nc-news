@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
   fetchSingleArticle,
   minusArticleVotes,
   addArticleVotes,
   fetchComments,
-  postComment,
+  deleteComment,
 } from "../api";
 import dateFormat from "dateformat";
 import { FaRegThumbsUp, FaRegThumbsDown } from "react-icons/fa";
@@ -17,6 +17,8 @@ const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState([]);
   const [showComment, setShowComment] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+
   const increaseVote = () => {
     setVoteCount((currVotes) => currVotes + 1);
     addArticleVotes(article_id).catch((err) => {
@@ -31,16 +33,22 @@ const SingleArticle = () => {
     });
   };
 
+  const removeComment = (comment_id, article_id) => {
+    deleteComment(comment_id).then(() => {
+      navigate(0);
+      console.log({ article_id });
+    });
+  };
+
   useEffect(() => {
     fetchSingleArticle(article_id).then((article) => {
       setSingleArticle(article);
       setIsLoading(false);
     });
-    fetchComments(article_id).then((response) => {
-      setShowComment(response.comments);
-    });
-    postComment(article_id)
-      .then((response) => {})
+    fetchComments(article_id)
+      .then((response) => {
+        setShowComment(response.comments);
+      })
       .catch((err) => {
         console.dir(err);
       });
@@ -80,11 +88,19 @@ const SingleArticle = () => {
         {showComment.map((comment) => {
           return (
             <>
-              <div>
+              <div className="individual-comment">
                 <h4>Author: {comment.author}</h4>
                 <h4>{comment.body}</h4>
                 <h4>{dateFormat(comment.created_at, "mmmm dS, yyyy")}</h4>
                 <h4>Votes: {comment.votes}</h4>
+                <button
+                  onClick={() => {
+                    removeComment(comment.comment_id);
+                  }}
+                  className="delete-comment-button"
+                >
+                  Delete Comment{" "}
+                </button>
                 <br></br>
               </div>
             </>

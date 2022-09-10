@@ -4,6 +4,9 @@ import { MdArticle } from "react-icons/md";
 import { BiFootball } from "react-icons/bi";
 import { HiDesktopComputer } from "react-icons/hi";
 import { GiCook } from "react-icons/gi";
+import { FaUserAlt } from "react-icons/fa";
+import User from "./User";
+// import UserList from "./UserList";
 
 const Header = () => {
   return (
@@ -32,6 +35,12 @@ const Header = () => {
           {" | "}
           <GiCook />
           <Link to="/topics/cooking"> Cooking </Link>
+          <br></br>
+          <br></br>
+          <FaUserAlt />
+          <br></br>
+          <User />
+          {/* <UserList /> */}
         </nav>
       </section>
     </>
